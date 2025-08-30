@@ -134,6 +134,7 @@ class CameraStreamUI:
         """
         Draw the original camera stream in the given rectangle, resizing and centering it to preserve aspect ratio.
         """
+        cam_frame = cv2.flip(cam_frame, 1)
         xc, yc = x + w//2, y + h//2
 
         h_f, w_f = cam_frame.shape[:2]
@@ -153,6 +154,7 @@ class CameraStreamUI:
         """
         Draw the processed (filtered) camera stream in the given rectangle, resizing and centering it to preserve aspect ratio.
         """
+        cam_frame = cv2.flip(cam_frame, 1)
         if self.selected_filter:
             proc_frame = self.apply_filter(cam_frame, self.selected_filter)
         else:
